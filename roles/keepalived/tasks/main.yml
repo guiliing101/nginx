@@ -1,0 +1,8 @@
+---
+- include: install_nginx.yml
+- include: install_keepalived.yml 
+- include: nginx_conf.yml
+- include: keepalived_conf.yml
+- include: service_nginx.yml
+- include: service_keepalived.yml
+- include: ip_keepalived.yml

@@ -1,0 +1,6 @@
+# 如果文件改变重启keepalived服务
+---
+- name: restart keepalived
+  service: 
+    name: keepalived
+    state: restarted

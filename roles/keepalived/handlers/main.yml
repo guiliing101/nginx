@@ -1,0 +1,3 @@
+---
+- include: restart_keepalived.yml
+- include: restart_nginx.yml

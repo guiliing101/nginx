@@ -1,0 +1,10 @@
+---
+- hosts: websrvs
+  remote_user: root
+  roles:
+    - role: nginx
+
+- hosts: dbsrvs
+  remote_user: root
+  roles:
+    - role: keepalived

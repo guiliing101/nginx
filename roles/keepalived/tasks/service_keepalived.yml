@@ -1,0 +1,8 @@
+# 启动keepalived
+---
+- name: start keepalived
+  service: 
+    name: keepalived
+    state: started
+    enabled: yes
+

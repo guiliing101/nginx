@@ -1,0 +1,38 @@
+/bin/bash: Configuration: 未找到命令
+bal_defs {                                                   
+        notification_email {
+                root@localhost
+        }
+        notification_email_from keepalived@localhost
+        smtp_server 127.0.0.1
+        smtp_connect_timeout 30
+        router_id HAproxy1
+}
+
+vrrp_instance VI_1 {
+    state {% if inventory_hostname == groups['keepalived'][0] %}MASTER{% else %}BACKUP{% endif %}
+
+    interface {{ ansible_default_ipv4.interface }}
+
+    virtual_router_id 51
+    priority {% if inventory_hostname == groups['keepalived'][0] %}100{% else %}90{% endif %}
+    advert_int 1
+    nopreempt
+
+    vrrp_garp_interval 5
+    vrrp_gna_interval 5
+
+    authentication {
+        auth_type PASS
+        auth_pass 1111
+    }
+
+    virtual_ipaddress {
+        192.168.1.200/24 dev {{ ansible_default_ipv4.interface }}
+    }
+
+    track_script {
+        chk_nginx
+    }
+}
+

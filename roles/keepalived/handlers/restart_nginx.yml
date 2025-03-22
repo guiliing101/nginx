@@ -1,0 +1,6 @@
+# 如果文件改变重启nginx服务
+--- 
+- name: restart nginx
+  service: 
+    name: nginx
+    state: restarted

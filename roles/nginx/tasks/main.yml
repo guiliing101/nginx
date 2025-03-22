@@ -1,0 +1,5 @@
+---
+- include: install_nginx.yml
+- include: index.yml
+- include: service_nginx.yml
+- include: nginx_web.yml

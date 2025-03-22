@@ -1,0 +1,6 @@
+# 网页设计
+---
+- name: copy html
+  copy:
+    src: index.html
+    dest: /usr/share/nginx/html/index.html

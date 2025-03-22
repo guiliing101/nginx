@@ -1,0 +1,5 @@
+# 下载keepalived
+---
+- name: install keepalived package
+  yum: 
+    name: keepalived

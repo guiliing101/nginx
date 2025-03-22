@@ -1,0 +1,10 @@
+# 配置keepalived文件
+---
+- name: tempate keepalived
+  template:
+    src: keepalived.conf.j2
+    dest: /etc/keepalived/keepalived.conf
+  vars:
+    keepalived_state: "{{ 'MASTER' if inventory_hostname == 'lb1' else 'BACKUP' }}"
+    keepalived_priority: "{{ 100 if inventory_hostname == 'lb1' else 90 }}"
+  notify: restart keepalived

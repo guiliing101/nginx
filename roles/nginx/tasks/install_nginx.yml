@@ -1,0 +1,5 @@
+# 下载nginx
+---
+- name: install nginx package
+  yum:
+    name: nginx

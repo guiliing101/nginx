@@ -1,0 +1,11 @@
+# 验证web服务
+---
+- name: Verify nginx web service
+  uri:
+    url: http://localhost
+    return_content: yes
+  register: web_result
+  until: web_result.status == 200
+  retries: 5
+  delay: 3
+
